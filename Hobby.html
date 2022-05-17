@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Hobby</title>
+
+		<link rel="stylesheet" type="text/css" href="css/Hobby.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			#neko {
+				width: 100px;
+				height: 100px;
+				background: white;
+				position: fixed;
+				cursor: move;
+				box-sizing: border-box;
+				border: 4px solid white;
+				border-radius: 50%;
+				background: url(img/爱好紫色.jpg) no-repeat center center;
+				background-size: 100% 100%;
+				overflow: hidden;
+			}
+		</style>
+
+		<body>
+
+			<div id="neko"></div>
+
+			<script>
+				var neko = document.querySelector('#neko');
+				var nekoW = neko.offsetWidth;
+				var nekoH = neko.offsetHeight;
+				var cuntW = 0;
+				var cuntH = 0;
+				neko.style.left = parseInt(Math.random() * (document.body.offsetWidth - nekoW)) + 'px';
+				neko.style.top = parseInt(Math.random() * (document.body.offsetHeight - nekoH)) + 'px';
+
+				function move(obj, w, h) {
+					if(obj.direction === 'left') {
+						obj.style.left = 0 - w + 'px';
+					} else if(obj.direction === 'right') {
+
+						obj.style.left = document.body.offsetWidth - nekoW + w + 'px';
+					}
+					if(obj.direction === 'top') {
+						obj.style.top = 0 - h + 'px';
+					} else if(obj.direction === 'bottom') {
+						obj.style.top = document.body.offsetHeight - nekoH + h + 'px';
+					}
+				}
+
+				function rate(obj, a) {
+					//  console.log(a);
+					obj.style.transform = ' rotate(' + a + ')'
+				}
+
+				function action(obj) {
+
+					var dir = obj.direction;
+
+					switch(dir) {
+						case 'left':
+							rate(obj, '90deg');
+							break;
+						case 'right':
+							rate(obj, '-90deg');
+							break;
+						case 'top':
+							rate(obj, '-180deg');
+							break;
+						default:
+							rate(obj, '-0');
+							break;
+					}
+
+				}
+				neko.onmousedown = function(e) {
+					var nekoL = e.clientX - neko.offsetLeft;
+					var nekoT = e.clientY - neko.offsetTop;
+					document.onmousemove = function(e) {
+						cuntW = 0;
+						cuntH = 0;
+						neko.direction = '';
+						neko.style.transition = '';
+						neko.style.left = (e.clientX - nekoL) + 'px';
+						neko.style.top = (e.clientY - nekoT) + 'px';
+						if(e.clientX - nekoL < 5) {
+							neko.direction = 'left';
+						}
+						if(e.clientY - nekoT < 5) {
+							neko.direction = 'top';
+						}
+						if(e.clientX - nekoL > document.body.offsetWidth - nekoW - 5) {
+							neko.direction = 'right';
+						}
+						if(e.clientY - nekoT > document.body.offsetHeight - nekoH - 5) {
+							neko.direction = 'bottom';
+						}
+
+						move(neko, 0, 0);
+
+					}
+				}
+				neko.onmouseover = function() {
+					move(this, 0, 0);
+					rate(this, 0)
+				}
+
+				neko.onmouseout = function() {
+					move(this, nekoW / 2, nekoH / 2);
+					action(this);
+				}
+
+				neko.onmouseup = function() {
+					document.onmousemove = null;
+					this.style.transition = '.5s';
+					move(this, nekoW / 2, nekoH / 2);
+					action(this);
+				}
+
+				window.onresize = function() {
+					var bodyH = document.body.offsetHeight;
+					var nekoT = neko.offsetTop;
+					var bodyW = document.body.offsetWidth;
+					var nekoL = neko.offsetLeft;
+
+					if(nekoT + nekoH > bodyH) {
+						neko.style.top = bodyH - nekoH + 'px';
+						cuntH++;
+					}
+					if(bodyH > nekoT && cuntH > 0) {
+						neko.style.top = bodyH - nekoH + 'px';
+					}
+					if(nekoL + nekoW > bodyW) {
+						neko.style.left = bodyW - nekoW + 'px';
+						cuntW++;
+					}
+					if(bodyW > nekoL && cuntW > 0) {
+						neko.style.left = bodyW - nekoW + 'px';
+					}
+
+					move(neko, nekoW / 2, nekoH / 2);
+				}
+			</script>
+
+			<div>
+
+				<ul id="mainNavigation">
+
+					<li>
+						<a href="index.html">首页</a>
+					</li>
+					<li>
+						<a href="Schlool.html">我的学校</a>
+					</li>
+					<li>
+						<a href="HOME.html">我的家乡</a>
+					</li>
+					<li>
+						<a href="Hobby.html">个人爱好</a>
+					</li>
+				</ul>
+
+			</div>
+
+			<div class="container">
+
+				<div class="sep">
+					<h1 id="wode">个&nbsp;&nbsp;&nbsp;&nbsp;人&nbsp;&nbsp;&nbsp;&nbsp;爱&nbsp;&nbsp;&nbsp;&nbsp;好</h1>
+					<br /><br /><br /><br /><br /><br />
+					<h2>Hobby1——爱读书</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;古语有云：“读书破万卷，下笔如有神”。而且,读书，可以拓宽我们眼界，获得丰富知识；读书，能引导我们明理，学会如何做有修养的人；读书，还能提高我们的阅读能力，养成良好的学习习惯。一个不重视阅读的个人，是一个不能进步的个人；一个不重视阅读的家庭，是一个平庸的家庭；一个不重视阅读的学校，是一个乏味的学校；一个不重视阅读的民族，是一个没有希望的民族。所谓“腹有诗书气自华，最是书香能久远”。高尔基曾说过“书籍是人类进步的阶梯”。站在巨人的肩上，我们可以看得更远；以书作垫脚石，我们可以攀得更高。</p>
+
+					<div class="image-hover img-zoom-in">
+						<img src="img/images/读书1.jpg">
+					</div>
+
+					<div class="image-hover img-zoom-out">
+						<img src="img/images/读书2.jpg">
+					</div>
+
+				</div>
+
+				<div class="sep">
+					<div class="image-hover img-rotate-right">
+						<img src="img/images/读书3.jpg">
+					</div>
+
+					<div class="image-hover img-rotate-left">
+						<img src="img/images/读书4.jpg">
+					</div>
+					<br /><br /><br /><br /><br />
+				</div>
+
+				<div class="sep">
+
+					<h2>Hobby2——爱运动</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;运动是我们生命键康之本。生命在于运动，运动让我们活力十足，让我们心情舒畅，让我们远离疾病，让我们健康长寿。运动离不开我们。生命在于运动；运动使我们体能增强；运动能使我们保持有型身材；运动能使我们耐力增加；运动能使我们胸怀坦荡；运动能使我们朝气蓬勃；运动能使我们神采飞扬；运动使我们充满毅力；更能使我们去轻松面对生活。“爱美之心，人皆有之”，我们要在体育运动中茁壮成长、在运动中保持健美。</p>
+					<div class="image-hover img-origin">
+						<img src="img/images/运动1.jpg">
+					</div>
+
+				</div>
+
+				<div class="sep">
+
+					<p>登上快乐的山峰，让生命里充满欣喜;迈开幸福的舞步，让人生中满是活力;散步精神的广场，让心灵总是轻松。</p>
+					<div class="image-hover img-square-ellipse" style="background:#fff url(img/images/运动2.jpg) no-repeat -100px -100px"></div>
+
+					<div class="image-hover img-ellipse-square" style="background:#fff url(img/images/运动6.jpg) no-repeat -100px -100px"></div>
+
+				</div>
+
+				<div class="sep">
+					<p>弯一弯腰，伸一伸腿，幸福紧相随;晃一晃脑，摇一摇头，健康围着你笑;动一动手，擞一擞肩，快乐在身边。</p>
+					<div class="image-hover img-square-round" style="background:#fff url(img/images/运动4.jpg) no-repeat -100px -100px"></div>
+
+					<div class="image-hover img-round-square" style="background:#fff url(img/images/运动7.jpg) no-repeat -100px -100px"></div>
+					<br /><br /><br /><br /><br />
+				</div>
+
+				<div class="sep">
+
+					<h2>Hobby3——爱旅游</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;古人云：“行万里路，读万卷书”，并提倡“走读”。俗话说得好：“见多识广”。不同的世界，将会带给我们快乐和幸福。如果我们不走出去，我们就将以为世界就这么大；如果你不走进别样的领域，你就以为世界上的人都过着和你一样的生活。走出去，别样的风光，别样的世界，会为你封闭已久的心灵打开一扇窗，让你的世界豁然开朗，你会在看风景、品美食、住宾馆、赏民俗、听故事的种种过程中体验日常生活中体验不到的快乐。</p>
+					<div class="image-hover img-layer-image-hover-backgroundchange">
+						<img src="img/images/旅游1.jpg">
+						<div class="layer"></div>
+					</div>
+
+				</div>
+
+				<div class="sep">
+
+					<p>人生最好的旅行，就是你在一个陌生的地方，发现一种久违的感动。</p>
+					<div class="image-hover img-rotate-scale">
+						<img src="img/images/旅游2.jpg">
+					</div>
+
+				</div>
+
+				<div class="sep">
+					<p>每个人心中，都会有一个古镇情怀，流水江南，烟笼人家。</p>
+					<div class="image-hover img-rotate-x">
+						<img src="img/images/旅游3.jpg">
+					</div>
+
+					<div class="image-hover img-rotate-y">
+						<img src="img/images/旅游4.jpg">
+					</div>
+					<p>背着背包的路上，看过许多人，听过许多故事，见过旅行风景，就这样，慢慢学会了长大。</p>
+					<div class="image-hover img-rotate-z">
+						<img src="img/images/旅游5.jpg">
+					</div>
+					<br /><br /><br /><br /><br />
+				</div>
+
+				<div class="sep">
+
+					<h2>Hobby4——爱美食</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;俗话说得好：“民以食为天”。中国菜肴一共有八大菜系，每一种菜系有无数的名菜，各有各的特色。我们对美食的丰富而细腻的感受，是穷尽一生也体验不完的。有时候，美食对于我们来说也是一种治愈良药。吃，其实是没有定法的，它是一门充满了人间烟火的学问，更是一种即兴的，与生活交融在一起的行为艺术。若以人情世故来看食材的相逢，有的是让人叫绝的天作之合，有的是叫人动容的邂逅偶遇，有的是令人击节的相见恨晚。</p>
+					<div class="imagechange-3d image-hover hover">
+						<div class="imagechange-3d-inner">
+							<div class="imgchange-1">
+								<img src="img/images/美食1.jpg">
+							</div>
+							<div class="imgchange-2">
+								<img src="img/images/美食2.jpg">
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="sep">
+
+					<p>美食的意义，不是获取，而是在想像之外的环境里，去改变自己的世界观，慢慢改变心中真正觉得重要的东西。</p>
+
+					<div class="image-hover img-sharp-blur">
+						<img src="img/images/美食3.jpg">
+					</div>
+
+				</div>
+
+				<div class="sep">
+
+					<p>大多数美食，都是不同食材组合碰撞产生的裂变性奇观。</p>
+
+					<div class="image-hover img-color-grayscale">
+						<img src="img/images/美食4.jpg">
+					</div>
+					<br /><br /><br /><br /><br />
+				</div>
+
+				<div class="sep">
+
+					<h2>Hobby5——爱追剧</h2>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;我喜欢的一些场景，一些很温暖的感觉。我时常会使用 “温暖” 这个词语，我喜欢的。因为我会常常感到温暖，莫名其妙地。一部影视，一段生活，一句佳话。影视是一种超多样化的艺术形式。无论你想知道什么或者想学什么，你都可以从中吸取，从而滋养你的生活！我们每个人都有自己的生活小世界。透过银幕，让我们看到更多精彩的世界角落。每一部电影都是一扇窗户。我们从我们生活的地方看到它。每个窗口都有其不同的视图。</p>
+					<div class="image-hover img-inner-shadow">
+						<img src="img/images/影视1.jpg">
+						<div class="layer"></div>
+					</div>
+
+					<div class="image-hover img-inner-shadow-2">
+						<img src="img/images/影视2.jpeg">
+						<div class="layer"></div>
+					</div>
+
+				</div>
+
+				<div class="sep">
+					<p>许多经典的影视告诉我们，如果有梦想,得去捍卫它。虽然对我们来说生活是艰难的，但我们必须向前迈进。</p>
+					<div class="image-hover img-opacity">
+						<img src="img/images/影视3.jpg" class="img-1">
+						<img src="img/images/影视4.jpg" class="img-2">
+					</div>
+
+				</div>
+
+				<div class="sep">
+					<p>生命是漫长的，偶尔看一部老电影也是一种奢侈！</p>
+					<div class="image-hover img-roll">
+						<img src="img/images/影视5.jpg" class="img-1">
+						<img src="img/images/影视6.jpg" class="img-2">
+					</div>
+
+				</div>
+
+				<div class="sep">
+					<p>看的电影越多，你就越能感受到这个世界的规模和复杂性。</p>
+					<div class="image-hover img-shadow-1">
+						<img src="img/images/影视7.jpg">
+					</div>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;古希腊哲学家苏格拉底曾说过:“没有反思过的人生毫无意义”。电影不是生活，却是对生活最好的反思。电影似乎更像一面镜子，是人类历史发展的历程射影。无论悲喜，伦理，科幻，甚至综艺，他以任何形式所表达的内容，我们都能在现实生活中找到相应的情感寄托，又或者说，电影，本来就是生活！在我看来电影既是人类欲望的体现，也是一种挑逗人类情绪的工具，更是满足精神世界的艺术。艺术的对象是人，电影更不例外。一部影片的情节，思想，内涵都是通过剧中人物，既演员来呈现的，观众关注人物命运，自然最注意扮演人物的演员。</p>
+					<br /><br />
+				</div>
+
+			</div>
+			<div id="footer">
+				邮政编码:453731 | 联系方式：123456 | 技术支持:XX网络技术公司
+			</div>
+		</body>
+
+</html>

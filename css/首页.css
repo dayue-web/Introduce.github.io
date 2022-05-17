@@ -1,0 +1,200 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	text-shadow: 5px 5px 5px gray;
+}
+
+ul li {
+	position: relative;
+	float: right;
+	line-height: 40px;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 60px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	width: 80px;
+	padding: 20px 20px;
+	display: block;
+}
+
+a:hover {
+	background-color: #f2c9ac;
+}
+
+
+}
+
+h1 {
+	position: absolute;
+	top: 10px;
+	left: 260px;
+	width: 300px;
+	height: 53px;
+}
+
+
+}
+#wrap {
+	width: 100%;
+	height: 800px;
+}
+#header {
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+	height: 90px;
+}
+#logo {
+	position: absolute;
+	top: 90px;
+	left: 150px;
+}
+#header h1 {
+	position: absolute;
+	top: 120px;
+	left: 160px;
+	width: 300px;
+	height: 153px;
+}
+#header h1 span {
+	display: none;
+	
+}
+body {
+	background-color: blanchedalmond;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-size: cover;
+	background-position: left top;
+}
+#menu {
+	width: 90%;
+	height: 100px;
+	margin: 0 auto;
+}
+#main {
+	width: 80%;
+	margin: 20px auto;
+}
+#maincontent {
+	float: left;
+	width: 120px;
+	margin: 0 0 15px 20px;
+	padding: 15px;
+}
+#footer {
+	line-height: 40px;
+	font-size: 18px;
+	text-align: center;
+	margin-top: 100px;
+	width: 100%;
+	height: 30px;
+	opacity: 0.5;
+}
+#my2{
+	height: 80px;
+	margin-top:150px;
+	margin-left:5px;
+	list-style:none;
+}
+#my2 li{
+	font-size: 24px;
+	line-height: 68px;
+	text-align:center;
+	width: 23%;
+	margin: 5px 6px;
+	float:left;
+}
+.my_li{
+	border-radius: 30px;
+}
+.my_li:hover {
+	box-shadow: 10px 10px 5px #787878;
+}
+#my_li1{
+	background-color: cornsilk;
+	background-repeat: no-repeat;
+}
+#my_li2{
+	background-color: #ffcccc;
+	background-repeat: no-repeat;
+}
+#my_li3{
+	background-color:#ffcc99;
+	background-repeat: no-repeat;
+}
+#my_li4{
+	background-color: #ffcccc;
+	background-repeat: no-repeat;
+}
+
+#my_p{
+	/*border-radius: 5px;*/
+	margin: 0 0 10px 0;
+	float: left;
+}
+#my_p:hover{
+	box-shadow: 7px 7px 5px #393833;
+}
+.content {
+	width: 1050px;
+	margin: 0 auto;
+}
+
+.mainContent {
+	float: left;
+	width: 1000px;
+	
+}
+.recommendation {
+	clear: both;
+}
+.recommendation p {
+	font-size: 30px;
+	font-style: normal;
+	font-family: "楷体";
+}
+.recommendation h2 {
+	padding-top: 50px;
+	color: black;
+	border-bottom: 1px #DDBB99 solid;
+	font:  30px/32px 楷体_GB2312;
+	background: transparent url('images/rose.png') no-repeat bottom right;
+}
+.img-left img {
+	float: left;
+	margin-right: 10px;
+}
+.img-right {
+	float: right;
+	margin-left: 10px;
+}
+.multiColumn li {
+	float: left;
+	width: 300px;
+	margin: 0 10px;
+	text-align: left;
+	display: inline;
+	/*For IE 6 bugs*/
+}
+.multiColumn li p {
+	margin: 0 0 10px 0;
+	float: left;
+}
+#footer{
+	float: left;
+	line-height: 40px;
+	font-size: 18px;
+	text-align:center;
+	width: 100%;
+	height:auto;
+	background-color:rgba(255,252,150,0.3);
+}

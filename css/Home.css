@@ -1,0 +1,284 @@
+#mainNavigation{
+	position: absolute;
+	left: 600px;
+	top: 100px;
+	width: 60%;
+}
+#mainNavigation li{
+	float: left;
+	margin-left: 3%;
+}
+#mainNavigation li a{
+	text-decoration: none;
+	color: gray;
+	font: 35px/1.8 楷体;
+	padding:3PX 10px;
+}
+#mainNavigation li a:hover{
+	background-color:yellow;
+	-moz-border-top-left-radius:8px;
+	-moz-border-top-right-radius:8px;
+	-webkit-border-top-right-radius:8px;
+	-webkit-border-top-right-radius:8px;
+	-ms-border-top-left-radius:8px;
+	-ms-border-top-right-radius:8px;
+	-o-border-top-left-radius:8px;
+	-o-border-top-right-radius:8px;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+
+h1{
+	font-family: "楷体";
+	font-size: 40px;
+	
+}
+	
+
+#header {
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+	height: 20px;
+}
+#logo {
+	position: absolute;
+	top: 90px;
+	left: 100px;
+}
+#header h1 {
+	position: absolute;
+	top: 120px;
+	left: 40px;
+	width: 300px;
+	height: 153px;
+}
+#header h1 span {
+	display: none;
+}
+
+
+
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #fff;
+	/*overflow-x: hidden; overflow-y: hidden;*/
+	background-attachment: scroll;
+	background-color:lightgoldenrodyellow;
+}
+
+body.html {
+	height: 100%
+}
+
+div,
+li,
+ul {
+	padding: 0;
+	margin: 0
+}
+
+img {
+	vertical-align: top;
+	border: 0
+}
+
+li,ul {
+	list-style: none;
+	text-transform: capitalize
+}
+
+
+
+#banner {
+	margin-bottom:-10px
+}
+
+#carousel {
+	position: relative;
+	z-index: 2;
+	margin-top: 100px;
+	transform-style: preserve-3d;
+	perspective: 800px
+}
+
+#carousel img {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -252px;
+	transition: transform .5s ease-in-out;
+	box-shadow: 8px 8px 20px rgba(0, 0, 0, .2);
+	cursor: pointer
+}
+
+#bannerNav {
+	position: relative;
+	margin-top: 20px;
+	height: 10px;
+	padding: 10px 0;
+	text-align: center
+}
+
+#bannerNav ul li {
+	cursor: pointer;
+	overflow: hidden;
+	display: inline-block;
+	width: 22px;
+	margin: 0 2px
+}
+
+#bannerNav ul li a {
+	margin: 0 auto;
+	display: block;
+	width: 6px;
+	height: 6px;
+	vertical-align: top;
+	border-radius: 3px;
+	background: #5e6671;
+	font-size: 0
+}
+
+#bannerNav ul li.on a,
+#bannerNav ul li:hover a {
+	background: #00aeff
+}
+
+#bannerNav ul li.on a {
+	width: 20px
+}
+
+#carousel {
+	height: 400px
+}
+
+#carousel img {
+	width: 500px;
+	border-radius: 10px;
+	opacity: 0;
+}
+
+
+}
+.header {
+	opacity: 0.5;
+	padding: 100px;
+	text-align: center;
+}
+.header h1 {
+	font-size: 50px;
+	font-style: inherit;
+	text-align: center;
+	margin: 10px auto 80px;
+	font-family: "微软雅黑";
+}
+.column {
+	float: left;
+	padding: 10px;
+}
+
+/* 左右两侧宽度 */
+.column.side {
+	width: 25%;
+}
+
+/* 中间区域宽度 */
+.column.middle {
+	width: 50%;
+}
+
+/* 列后清除浮动 */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* 响应式布局 - 小于 600 px 时改为上下布局 */
+/*@media screen and (max-width: 600px) {
+	.column.side,
+	.column.middle {
+		width: 100%;
+	}
+}*/
+.content {
+	width: 900px;
+	margin: 0 auto;
+}
+.content a img {
+	padding: 5px;
+	background: #BDD6E8;
+	border: 1px #DEAF50 solid;
+	width: 260px;
+	height: 150px;
+}
+.content a:hover {
+	For IE 6 bug 
+	
+	color: #FFF;
+}
+.content a:hover img {
+	padding: 5px;
+	background: pink;
+	border: 1px bisque solid;
+}
+.mainContent {
+	float: left;
+	width: 1000px;
+}
+.recommendation {
+	clear: both;
+}
+.recommendation p {
+	
+}
+.recommendation h2 {
+	padding-top: 20px;
+	color: #069;
+	border-bottom: 1px #DEAF50 solid;
+	font: bold 22px/24px 楷体_GB2312;
+	background: transparent url('images/rose.png') no-repeat bottom right;
+}
+.img-left img {
+	float: left;
+	margin-right: 10px;
+}
+.img-right {
+	float: right;
+	margin-left: 10px;
+}
+.multiColumn li {
+	float: left;
+	width: 300px;
+	margin: 0 10px;
+	text-align: left;
+	display: inline;
+	/*For IE 6 bugs*/
+}
+.multiColumn li p {
+	margin: 0 0 10px 0;
+	float: left;
+}
+
+
+.footer {
+	clear: both;
+	height: 13px;
+	margin: 0;
+	background: transparent url('images/footer-background.png') repeat-x;
+	text-indent: 0px;
+	text-align: center;
+}
+.footer p {
+	margin: 0px;
+}
+.footer a {
+	color: white;
+}
+
+.footer .p2 {
+	line-height: 130px;
+}
